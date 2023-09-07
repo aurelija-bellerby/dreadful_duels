@@ -1,7 +1,7 @@
 package com.dreadfulduels.cardsAPI.models;
 
 import jakarta.persistence.*;
-
+// card model
 @Entity
 @Table(name = "cards")
 public class Card {
