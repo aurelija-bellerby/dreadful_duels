@@ -78,12 +78,10 @@ function GameManager(){
 
 
     return <>
-    { counter < 10 ? <Arena playerSelection={playerSelection} computerSelection={computerSelection} handleWinner={handleWinner} resetBoard={resetBoard}/> : <Results playerScore={playerScore} computerScore={computerScore} /> }
-    { counter < 10 ? <Deck deck={deck} handlePlayCard={handlePlayCard}/> : null }
-    
-    { deck ? null : <button onClick={addCardsToDeck} >Start New Game</button>}
-            </>
-
+      { counter < 10 ? <Arena playerSelection={playerSelection} computerSelection={computerSelection} handleWinner={handleWinner} resetBoard={resetBoard}/> : <Results playerScore={playerScore} computerScore={computerScore} /> }
+      { counter < 10 ? <Deck deck={deck} handlePlayCard={handlePlayCard}/> : null }
+      { deck ? null : <button onClick={addCardsToDeck} >Start New Game</button>}
+    </>
 }
 
 export default GameManager;

@@ -1,11 +1,6 @@
 import Card from "./Card";
 
-
-
 function Arena({playerSelection, computerSelection, handleWinner}){
-
-   
-    
 
     const handleDuel = ()=>{
 
@@ -13,29 +8,25 @@ function Arena({playerSelection, computerSelection, handleWinner}){
             const playerHealth = playerSelection.defence - computerSelection.attack
             const computerHealth = computerSelection.defence - playerSelection.attack
 
-            if (playerHealth > computerHealth){
+            if (playerHealth > computerHealth) {
                 handleWinner(playerSelection)
-            }
-            else if (computerHealth > playerHealth){
+            } else if (computerHealth > playerHealth) {
                 handleWinner(computerSelection)
-            }else{
+            } else {
                 handleWinner(null)
             }
         }
-        
     }
-        
 
-    if(playerSelection != null && computerSelection != null){
-        return(
+    if(playerSelection != null && computerSelection != null) {
+        return (
          <div>
-            <Card card={playerSelection}></Card>
             <Card card={computerSelection}></Card>
+            <Card card={playerSelection}></Card>
             <button onClick={handleDuel}>Start Duel</button>
          </div>
-
-    );
+        );
     }
-    
 }
+
 export default Arena;
