@@ -76,23 +76,18 @@ function GameManager(){
         setComputerSelection(null)
     }
 
-    
-    
-
-
-
     return <>
-    <form>
-      <label for="name">What is your name Mighty Duelist ?</label>
-      <input type="text" id="name" name="name" placeholder="e.g Magician Of Azgard"></input>
-      <submit></submit>
-    </form>
-    <Player score={playerScore}/>
-    { counter < 10 ? <Arena playerSelection={playerSelection} computerSelection={computerSelection} handleWinner={handleWinner} resetBoard={resetBoard} roundCounter={counter} deck={deck}/> : <Results playerScore={playerScore} computerScore={computerScore} /> }
-    { counter < 10 ? <Deck deck={deck} handlePlayCard={handlePlayCard}/> : null }
-    { deck ? null : <button onClick={addCardsToDeck} >Start New Game</button>}
-    <Player score={computerScore}/>
-            </>
+        <form>
+          <label for="name">What is your name Mighty Duelist ?</label>
+          <input type="text" id="name" name="name" placeholder="e.g Magician Of Azgard"></input>
+          <submit></submit>
+        </form>
+        <Player score={playerScore}/>
+        { counter < 10 ? <Arena playerSelection={playerSelection} computerSelection={computerSelection} handleWinner={handleWinner} resetBoard={resetBoard} roundCounter={counter} deck={deck}/> : <Results playerScore={playerScore} computerScore={computerScore} /> }
+        { counter < 10 ? <Deck deck={deck} handlePlayCard={handlePlayCard}/> : null }
+        { deck ? null : <button onClick={addCardsToDeck} >Start New Game</button>}
+        <Player score={computerScore}/>
+    </>
 
 }
 
