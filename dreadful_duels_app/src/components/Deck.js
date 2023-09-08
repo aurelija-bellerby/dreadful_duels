@@ -1,25 +1,20 @@
-import Card from "./Card"
+import styled from "styled-components";
+
+const StyledDeck = styled.div`
+    position: relative;
+`
+
 function Deck({handlePlayCard}) {
-
-    // const deck = deck.map((card)=>{
-    //     return (<Card card={card} key={card.id}></Card>);
-    // })
-
-    
 
     const playCard = ()=>{
         handlePlayCard()
-        
     }
-    
 
     return (
-      <div>
-        <a onClick={playCard}><img src="https://i.postimg.cc/gjncM9G0/back-Ground-Card-Finale.png"></img></a>
-        
-      </div>
+      <StyledDeck>
+        <button onClick={playCard}><img src="https://i.postimg.cc/gjncM9G0/back-Ground-Card-Finale.png" alt="dreadful duels deck"></img></button>
+      </StyledDeck>
     );
   }
-  
+
   export default Deck;
-  
