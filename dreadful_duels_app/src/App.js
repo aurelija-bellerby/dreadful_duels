@@ -8,6 +8,7 @@ function App() {
 
   return<>
   <GameManager/>
+  <h1 className='underline bg-red-500'>This is some text</h1>
   </>
 }
 
