@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-function SelectLegend({legends, onSubmit}){
+function SelectLegend({legends, onSubmit, addCardsToDeck}){
     const [legendOption, setLegendOption] = useState(legends[0]);
     const [playerInput, setPlayerInput] = useState('');
 
@@ -9,33 +9,35 @@ function SelectLegend({legends, onSubmit}){
       onSubmit(evt.target[1].value, playerInput);
     }
 
-    function onLegendSelected(legend) {
-      setLegendOption(legend);
-    }
+    return(
+      <div>
+        <form onSubmit={handleFormSubmit} className="flex flex-col gap-y-7 place-items-center text-3xl font-serif text-neutral-200 drop-shadow-[0_3px_3px_rgba(0,0,0,5)]" >
+            <label htmlFor="player">What is your name, Mighty Duelist ?</label>
+            <input
+              type="text"
+              id="player"
+              name="player"
+              placeholder="e.g Wizard of Azgard"
+              value={playerInput}
+              onChange={(evt) => setPlayerInput(evt.target.value)}
+              className="bg-transparent text-center"
+            />
+            
+            <label for="legend">Choose Your Enemy !</label>
+            <select name='legends-dropdown' className="bg-transparent text-center">
+              {legends.map(function(legend) {
+                return <option className="text-center" value={legend}>{legend}</option>
+              })}
+            </select>
 
-    return<>
-       <form onSubmit={handleFormSubmit}>
-          
-          <label htmlFor="player">What is your name Mighty Duelist ?</label>
-          <input
-            type="text"
-            id="player"
-            name="player"
-            placeholder="e.g Magician Of Azgard"
-            value={playerInput}
-            onChange={(evt) => setPlayerInput(evt.target.value)}
-          />
-          
-          <label for="legend">Choose Your Enemy !</label>
-          <select name='legends-dropdown'>
-            {legends.map(function(legend) {
-              return <option value={legend}>{legend}</option>
-            })}
-          </select>
-
-          <input type="submit"/>
-        </form >
-    </>
+            <input
+              type="submit"
+              onClick={addCardsToDeck}
+              value=" Start New Game "
+              className="p-5 rounded-3xl bg-zinc-500 hover:bg-cyan-800"
+              />
+          </form >
+      </div>)
 }
 
 export default SelectLegend;
