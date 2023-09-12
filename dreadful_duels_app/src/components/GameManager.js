@@ -3,6 +3,9 @@ import Arena from "./Arena";
 import Results from "./Results";
 import Player from "./Player";
 import React,{useState, useEffect} from "react";
+import SelectLegend from "./SelectLegend";
+
+
 
 function GameManager(){
 
@@ -13,6 +16,15 @@ function GameManager(){
     const [playerScore, setPlayerScore] = useState(0)
     const [computerScore, setComputerScore] = useState(0)
     const [counter, setCounter] = useState(0)
+    const [playerName, setPlayerName] = useState(null)
+    const [legendName, setLegendName] = useState(null)
+    const [legends, setLegends] = useState([
+              "Porko The Tamer",
+              "Kagke The War Troll",
+              "Aurelijon From The Cosmic Dawn",
+              "Roberto Of The 7 Seas",
+              "Rainer The Paladin",
+              "Yismin From The Shadow Isles"]) ;
     
 
     useEffect(()=>{
@@ -76,18 +88,28 @@ function GameManager(){
         setComputerSelection(null)
     }
 
-    return <>
-        <form>
-          <label for="name">What is your name Mighty Duelist ?</label>
-          <input type="text" id="name" name="name" placeholder="e.g Magician Of Azgard"></input>
-          <submit></submit>
-        </form>
-        <Player score={playerScore}/>
+    const updateNames =(legend, player) => {
+      
+      setLegendName(legend)
+      setPlayerName(player)
+
+    }
+    // const handleChange = (event)=>{
+    //   setLegendName(event.target.value);
+    // }
+
+    return(
+   
+      <div>
+        <SelectLegend legends={legends} onSubmit={updateNames}/>
+        <Player score={playerScore} name={playerName}/>
         { counter < 10 ? <Arena playerSelection={playerSelection} computerSelection={computerSelection} handleWinner={handleWinner} resetBoard={resetBoard} roundCounter={counter} deck={deck}/> : <Results playerScore={playerScore} computerScore={computerScore} /> }
         { counter < 10 ? <Deck deck={deck} handlePlayCard={handlePlayCard}/> : null }
         { deck ? null : <button onClick={addCardsToDeck} >Start New Game</button>}
-        <Player score={computerScore}/>
-    </>
+        <Player score={computerScore} name={legendName}/>
+      </div>
+    
+    )
 
 }
 
