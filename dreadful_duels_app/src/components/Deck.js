@@ -12,7 +12,7 @@ function Deck({handlePlayCard}) {
 
     return (
       <StyledDeck>
-        <button onClick={playCard}><img src="https://i.postimg.cc/gjncM9G0/back-Ground-Card-Finale.png" alt="dreadful duels deck"></img></button>
+        <button onClick={playCard}><img className="w-2/3 rounded-lg" src="https://i.postimg.cc/gjncM9G0/back-Ground-Card-Finale.png" alt="dreadful duels deck"></img></button>
       </StyledDeck>
     );
   }
