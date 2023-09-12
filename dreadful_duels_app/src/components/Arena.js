@@ -19,12 +19,20 @@ function Arena({playerSelection, computerSelection, handleWinner, roundCounter, 
     }
 
         return(
-         <div>
-            {deck ?<div>Round: {roundCounter + 1}</div>: null}
-            {computerSelection ? <Card card={computerSelection}></Card> : null}
-            {playerSelection ? <Card card={playerSelection}></Card> : null}
-            {playerSelection ?<button onClick={handleDuel}>Start Duel</button>: null}
-         </div>
+            <div className="grid grid-cols-2">
+                <div>
+                    {deck ?<div>Round: {roundCounter + 1}</div>: null}
+                </div>
+                <div>
+                    {computerSelection ? <Card card={computerSelection}></Card> : null}
+                </div>
+                <div>
+                    {playerSelection ?<button onClick={handleDuel}>Start Duel</button>: null}
+                </div>
+                <div>
+                    {playerSelection ? <Card card={playerSelection}></Card> : null}
+                </div>
+            </div>
         );
     }
 

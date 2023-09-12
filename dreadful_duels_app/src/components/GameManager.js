@@ -94,21 +94,32 @@ function GameManager(){
       setPlayerName(player)
 
     }
-    // const handleChange = (event)=>{
-    //   setLegendName(event.target.value);
-    // }
+    
 
     return(
-   
-      <div>
-        <SelectLegend legends={legends} onSubmit={updateNames}/>
-        <Player score={playerScore} name={playerName}/>
-        { counter < 10 ? <Arena playerSelection={playerSelection} computerSelection={computerSelection} handleWinner={handleWinner} resetBoard={resetBoard} roundCounter={counter} deck={deck}/> : <Results playerScore={playerScore} computerScore={computerScore} /> }
-        { counter < 10 ? <Deck deck={deck} handlePlayCard={handlePlayCard}/> : null }
-        { deck ? null : <button onClick={addCardsToDeck} >Start New Game</button>}
-        <Player score={computerScore} name={legendName}/>
-      </div>
-    
+      <>
+      { deck ? null : 
+        <div>
+            <SelectLegend legends={legends} onSubmit={updateNames}/>
+            <button onClick={addCardsToDeck} >Start New Game</button>
+        </div>
+        }
+        
+        <div className="grid grid-cols-3">
+          <div className="col-span-3 text-xl">
+            <Player score={playerScore} name={playerName} />
+          </div>
+          <div className="col-span-2">
+          { counter < 10 ? <Arena playerSelection={playerSelection} computerSelection={computerSelection} handleWinner={handleWinner} resetBoard={resetBoard} roundCounter={counter} deck={deck}/> : <Results playerScore={playerScore} computerScore={computerScore} /> }
+          </div>
+          <div>
+            { counter < 10 ? <Deck deck={deck} handlePlayCard={handlePlayCard}/> : null }
+          </div>
+          <div className="col-span-3 text-xl">
+            <Player score={computerScore} name={legendName}/>
+          </div>
+        </div>
+      </>
     )
 
 }
