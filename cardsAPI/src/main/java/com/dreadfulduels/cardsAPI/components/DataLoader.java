@@ -85,7 +85,7 @@ public class DataLoader implements ApplicationRunner {
         Card card22 = new Card("StormShell", 75, 55 , "The Floating Turtle", "https://i.postimg.cc/1tbpLgYS/stormshell.png");
         cardRepository.save(card22);
 
-        Card card23 = new Card("AcidClaw", 65,65 , "The Little Beetle", "https://i.postimg.cc/0jtVM5VH/acidclaw.png");
+        Card card23 = new Card("BeetleJuice", 65,65 , "The Little Beetle", "https://i.postimg.cc/0jtVM5VH/acidclaw.png");
         cardRepository.save(card23);
 
         Card card24 = new Card("ThunderClaw", 80, 50 , "White Tiger Of Thunders", "https://i.postimg.cc/8zThQgw7/thunderclaw.png");
