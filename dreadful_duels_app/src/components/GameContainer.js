@@ -13,27 +13,37 @@ function GameContainer({playerScore, playerName, counter, playerSelection,comput
       backgroundRepeat: `no-repeat`
       }}>
           <div className="text-xl justify-self-center">
-            <Player score={computerScore} name={legendName}/>
+            { counter <= 9 ?<Player score={computerScore} name={legendName}/>: null }
           </div>
           <div className="justify-self-center">
-            {deck ?<div className="text-3xl drop-shadow-[0_3px_3px_rgba(0,0,0,5)] pt-10">Round: {counter + 1}</div>: null}
+            {counter <= 9 ?<div className="text-3xl drop-shadow-[0_3px_3px_rgba(0,0,0,5)] pt-10">Round: {counter + 1}</div>: null}
           </div>
           <div></div>
-          <div className="col-span-2">
           { counter < 10 ?
-            <Arena
-              playerSelection={playerSelection}
-              computerSelection={computerSelection}
-              handleWinner={handleWinner}
-              resetBoard={resetBoard}/>
-              : <Results playerScore={playerScore} computerScore={computerScore} /> }
-          </div>
+            <div id="arena-div" className="col-span-2">
+              <Arena
+                playerSelection={playerSelection}
+                computerSelection={computerSelection}
+                handleWinner={handleWinner}
+                resetBoard={resetBoard}/>
+            </div>
+              : <div></div> }
+          { counter >= 10 ?
+            <div className="justify-self-center">
+              <Results playerScore={playerScore} computerScore={computerScore} />
+              <img src="https://i.postimg.cc/CKcGLg4D/logofinal.png" id="end-logo" className="w-36"/>
+            </div>  
+              : null }
           <div className='justify-self-center'>
             { counter < 10 ? <Deck deck={deck} handlePlayCard={handlePlayCard}/> : null }
           </div>
-          <div className="text-xl justify-self-center">
-            <Player score={playerScore} name={playerName} />
+          <div className="text-xl justify-self-center pb-16">
+          { counter <= 9 ?<Player score={playerScore} name={playerName} />: null}
           </div>
+          <div></div>
+          {counter <= 9 ?<div className='justify-self-center'>
+            <img src="https://i.postimg.cc/CKcGLg4D/logofinal.png" className="w-36 pb-16"/>
+          </div> : null}
       </div>
     
   )
