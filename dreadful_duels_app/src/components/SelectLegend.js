@@ -1,12 +1,14 @@
 import React, {useState} from "react";
-function SelectLegend({legends, onSubmit, addCardsToDeck}){
+function SelectLegend({legends, updateNames, addCardsToDeck}){
     const [legendOption, setLegendOption] = useState(legends[0]);
     const [playerInput, setPlayerInput] = useState('');
 
     function handleFormSubmit(evt) {
       evt.preventDefault();
       setLegendOption(evt.target[1].value)
-      onSubmit(evt.target[1].value, playerInput);
+      console.log(evt.target[1].value, playerInput)
+      updateNames(evt.target[1].value, playerInput);
+      addCardsToDeck()
     }
 
     return(
@@ -32,7 +34,6 @@ function SelectLegend({legends, onSubmit, addCardsToDeck}){
 
             <input
               type="submit"
-              onClick={addCardsToDeck}
               value=" Start New Game "
               className="p-5 rounded-3xl bg-zinc-500 hover:bg-cyan-800"
               />

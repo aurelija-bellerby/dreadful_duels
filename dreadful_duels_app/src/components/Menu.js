@@ -17,7 +17,7 @@ function Menu({legends , updateNames, addCardsToDeck}) {
         }}>
         <div className='flex flex-col justify-center align-middle place-items-center min-h-screen'>
             <StyledHeading className='text-8xl text-neutral-200 drop-shadow-[0_5px_5px_rgba(0,0,0,5)]'>Dreadful Duels</StyledHeading>
-            <SelectLegend legends={legends} onSubmit={updateNames} addCardsToDeck={addCardsToDeck}/>
+            <SelectLegend legends={legends} updateNames={updateNames} addCardsToDeck={addCardsToDeck}/>
         </div>
     </div>
   )

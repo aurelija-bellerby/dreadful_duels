@@ -15,3 +15,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#player {
+  font-size: 1.6rem;
+}
+
+#arena-div {
+  min-height: 550px;
+}
+
+#end-logo {
+  position: absolute;
+  left: 50%;
+}
