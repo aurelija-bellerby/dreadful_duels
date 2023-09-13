@@ -7,7 +7,6 @@ const StyledCard = styled.div`
     }
     #card-img {
         position: absolute;
-        z-index: -1;
         width: 135px;
         top: 56px;
         left: 23px;
@@ -27,27 +26,31 @@ const StyledCard = styled.div`
         position: absolute;
         margin: 0px;
         text-align: center;
-        top: 210px;
+        line-height: 1.2;
+        top: 207px;
         left: 20px;
         font-size: 12px;
+        color: black;
         font-family: "Times New Roman";
         width: 140px;
         font-style: italic;
     }
     #card-attack {
         position: absolute;
-        top: 230px;
-        left: 40px;
+        top: 237px;
+        left: 22px;
         font-size: 10px;
+        color: black;
         max-width: 50px;
         margin: 0px;
         font-weight: bold;
     }
     #card-defence {
         position: absolute;
-        top: 230px;
-        left: 110px;
+        top: 237px;
+        left: 130px;
         font-size: 10px;
+        color: black;
         max-width: 50px;
         margin: 0px;
         font-weight: bold;

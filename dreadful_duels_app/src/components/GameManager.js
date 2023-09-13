@@ -1,11 +1,6 @@
-import Deck from "./Deck";
-import Arena from "./Arena";
-import Results from "./Results";
-import Player from "./Player";
 import React,{useState, useEffect} from "react";
-import SelectLegend from "./SelectLegend";
-
-
+import GameContainer from "./GameContainer";
+import Menu from "./Menu";
 
 function GameManager(){
 
@@ -21,11 +16,10 @@ function GameManager(){
     const [legends, setLegends] = useState([
               "Porko The Tamer",
               "Kagke The War Troll",
-              "Aurelijon From The Cosmic Dawn",
+              "Aurelija The Celestial",
               "Roberto Of The 7 Seas",
               "Rainer The Paladin",
-              "Yismin From The Shadow Isles"]) ;
-    
+              "Yismin Of Shadow Isles"]) ;
 
     useEffect(()=>{
       getCards();
@@ -94,21 +88,32 @@ function GameManager(){
       setPlayerName(player)
 
     }
-    // const handleChange = (event)=>{
-    //   setLegendName(event.target.value);
-    // }
+    
 
     return(
-   
-      <div>
-        <SelectLegend legends={legends} onSubmit={updateNames}/>
-        <Player score={playerScore} name={playerName}/>
-        { counter < 10 ? <Arena playerSelection={playerSelection} computerSelection={computerSelection} handleWinner={handleWinner} resetBoard={resetBoard} roundCounter={counter} deck={deck}/> : <Results playerScore={playerScore} computerScore={computerScore} /> }
-        { counter < 10 ? <Deck deck={deck} handlePlayCard={handlePlayCard}/> : null }
-        { deck ? null : <button onClick={addCardsToDeck} >Start New Game</button>}
-        <Player score={computerScore} name={legendName}/>
-      </div>
-    
+      <>
+      { deck ?
+        <GameContainer 
+          playerScore={playerScore}
+          computerScore={computerScore}
+          playerName={playerName}
+          counter={counter}
+          playerSelection={playerSelection}
+          computerSelection={computerSelection}
+          handleWinner={handleWinner}
+          deck={deck}
+          handlePlayCard={handlePlayCard}
+          legendName={legendName}
+          roundCounter={counter}
+        />
+        :
+        <Menu
+          legends={legends}
+          updateNames={updateNames}
+          addCardsToDeck={addCardsToDeck}
+        />
+        }
+      </>
     )
 
 }

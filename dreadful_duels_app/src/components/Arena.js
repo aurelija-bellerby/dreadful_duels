@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-function Arena({playerSelection, computerSelection, handleWinner, roundCounter, deck}){
+function Arena({playerSelection, computerSelection, handleWinner}){
 
     const handleDuel = ()=>{
 
@@ -19,12 +19,18 @@ function Arena({playerSelection, computerSelection, handleWinner, roundCounter, 
     }
 
         return(
-         <div>
-            {deck ?<div>Round: {roundCounter + 1}</div>: null}
-            {computerSelection ? <Card card={computerSelection}></Card> : null}
-            {playerSelection ? <Card card={playerSelection}></Card> : null}
-            {playerSelection ?<button onClick={handleDuel}>Start Duel</button>: null}
-         </div>
+            <div className="grid grid-cols-2">
+                <div></div>
+                <div className="justify-self-center">
+                    {computerSelection ? <Card card={computerSelection}></Card> : null}
+                </div>
+                <div className="justify-self-center text-3xl ">
+                    {playerSelection ?<button onClick={handleDuel} className="bg-red-900 p-5 rounded-3xl drop-shadow-[0_3px_3px_rgba(0,0,0,5)]" >Start Duel </button>: null}
+                </div>
+                <div className="justify-self-center">
+                    {playerSelection ? <Card card={playerSelection}></Card> : null}
+                </div>
+            </div>
         );
     }
 
