@@ -16,10 +16,10 @@ function GameManager(){
     const [legends, setLegends] = useState([
               "Porko The Tamer",
               "Kagke The War Troll",
-              "Aurelijon From The Cosmic Dawn",
+              "Aurelija The Celestial",
               "Roberto Of The 7 Seas",
               "Rainer The Paladin",
-              "Yismin From The Shadow Isles"]) ;
+              "Yismin Of Shadow Isles"]) ;
 
     useEffect(()=>{
       getCards();
@@ -104,6 +104,7 @@ function GameManager(){
           deck={deck}
           handlePlayCard={handlePlayCard}
           legendName={legendName}
+          roundCounter={counter}
         />
         :
         <Menu
