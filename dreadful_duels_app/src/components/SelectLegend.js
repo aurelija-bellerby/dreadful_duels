@@ -20,6 +20,7 @@ function SelectLegend({legends, updateNames, addCardsToDeck}){
               id="player"
               name="player"
               placeholder="e.g Wizard of Azgard"
+              required
               value={playerInput}
               onChange={(evt) => setPlayerInput(evt.target.value)}
               className="bg-transparent text-center"
